@@ -15,11 +15,11 @@ class PegawaiSeeder extends Seeder
     {
         //
         $pegawai = [
-            ['nama' => 'Ahmad Hidayat', 'jabatan' => 'Kepala Dinas', 'atasan_id' => null],
-            ['nama' => 'Budi Santoso', 'jabatan' => 'Kepala Bidang', 'atasan_id' => 1],
-            ['nama' => 'Citra Lestari', 'jabatan' => 'Kepala Bidang', 'atasan_id' => 1],
-            ['nama' => 'Dian Pratama', 'jabatan' => 'Staff', 'atasan_id' => 2],
-            ['nama' => 'Eka Saputra', 'jabatan' => 'Staff', 'atasan_id' => 3],
+            ['nama' => 'Ahmad Hidayat', 'jabatan' => 'Kepala Dinas', 'password' => '12345', 'atasan_id' => null],
+            ['nama' => 'Budi Santoso', 'jabatan' => 'Kepala Bidang', 'password' => '12345', 'atasan_id' => 1],
+            ['nama' => 'Citra Lestari', 'jabatan' => 'Kepala Bidang', 'password' => '12345', 'atasan_id' => 1],
+            ['nama' => 'Dian Pratama', 'jabatan' => 'Staff', 'password' => '12345', 'atasan_id' => 2],
+            ['nama' => 'Eka Saputra', 'jabatan' => 'Staff', 'password' => '12345', 'atasan_id' => 3],
         ];
 
         foreach ($pegawai as $p) {

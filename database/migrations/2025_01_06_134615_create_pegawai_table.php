@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama');
             $table->string('jabatan');
+            $table->string('password');
             $table->foreignId('atasan_id')->nullable()->constrained('pegawais')->onDelete('cascade');
             $table->timestamps();
         });
