@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\InfoUserController;
+use App\Http\Controllers\LogHarianController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
 use Illuminate\Support\Facades\Route;
@@ -16,9 +18,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/', function () {
         return view('session/login-session');
     });
-    Route::get('dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::get('profile', function () {
         return view('profile');
@@ -27,6 +27,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('user-management', function () {
         return view('laravel-examples/user-management');
     })->name('user-management');
+
+    Route::resource('log-harian', LogHarianController::class);
 
     Route::get('/logout', [SessionsController::class, 'destroy']);
     Route::get('/user-profile', [InfoUserController::class, 'create']);

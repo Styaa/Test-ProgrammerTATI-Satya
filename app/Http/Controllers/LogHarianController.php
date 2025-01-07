@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\LogHarian;
 use Illuminate\Http\Request;
 
 class LogHarianController extends Controller
@@ -28,6 +29,20 @@ class LogHarianController extends Controller
     public function store(Request $request)
     {
         //
+        $validated = $request->validate([
+            'kegiatan' => ['required'],
+        ]);
+
+        $pegawaiId = auth()->user()->id;
+
+        LogHarian::create([
+            'tanggal' => now()->format('Y-m-d'),
+            'kegiatan' => $validated['kegiatan'],
+            'pegawai_id' => $pegawaiId, // Relasi ke pegawai
+        ]);
+
+        session()->flash('success', 'Log harian berhasil ditambahkan.');
+        return redirect()->route('dashboard');
     }
 
     /**
