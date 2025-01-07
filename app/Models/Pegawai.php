@@ -17,4 +17,14 @@ class Pegawai extends Model implements AuthenticatableContract
         'password',
         'atasan_id',
     ];
+
+    public function jabatan()
+    {
+        return $this->belongsTo(Jabatan::class);
+    }
+
+    public function atasan()
+    {
+        return $this->belongsTo(Pegawai::class, 'atasan_id');
+    }
 }

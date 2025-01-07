@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('pegawais', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->string('jabatan');
+            $table->foreignId('jabatan_id')->default(3)->constrained('jabatans')->onDelete('restrict');
             $table->string('password');
             $table->foreignId('atasan_id')->nullable()->constrained('pegawais')->onDelete('cascade');
             $table->timestamps();

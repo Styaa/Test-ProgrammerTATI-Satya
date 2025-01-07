@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class SessionsController extends Controller
 {
@@ -15,27 +16,21 @@ class SessionsController extends Controller
 
     public function store()
     {
-        // Validasi input
         $attributes = request()->validate([
             'nama' => 'required',
             'password' => 'required'
         ]);
 
-        // Ambil data pegawai berdasarkan nama
         $pegawai = \App\Models\Pegawai::where('nama', $attributes['nama'])->first();
 
-        // Periksa apakah data pegawai ditemukan
-        if (!$pegawai) {
+        if ($pegawai && Hash::check($attributes['password'], $pegawai->password)) {
+            if (Auth::attempt($attributes)) {
+                session()->regenerate();
+                return redirect('dashboard')->with(['success' => 'You are logged in.']);
+            }
+        } else {
             return back()->withErrors(['nama' => 'Nama tidak ditemukan.']);
         }
-
-        // Login user menggunakan Auth
-        Auth::login($pegawai);
-
-        // Regenerasi session untuk keamanan
-        session()->regenerate();
-
-        return redirect('dashboard')->with('success', 'Selamat datang, ' . $pegawai->nama . '!');
     }
 
 
