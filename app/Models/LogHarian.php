@@ -20,4 +20,9 @@ class LogHarian extends Model
     {
         return $this->belongsTo(Pegawai::class, 'pegawai_id');
     }
+
+    public function verifikator()
+    {
+        return $this->belongsTo(Pegawai::class, 'verifikator_id');
+    }
 }

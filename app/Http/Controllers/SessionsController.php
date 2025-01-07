@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pegawai;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -21,7 +22,7 @@ class SessionsController extends Controller
             'password' => 'required'
         ]);
 
-        $pegawai = \App\Models\Pegawai::where('nama', $attributes['nama'])->first();
+        $pegawai = Pegawai::where('nama', $attributes['nama'])->first();
 
         if ($pegawai && Hash::check($attributes['password'], $pegawai->password)) {
             if (Auth::attempt($attributes)) {

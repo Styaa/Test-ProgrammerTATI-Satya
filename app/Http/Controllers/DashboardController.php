@@ -19,6 +19,8 @@ class DashboardController extends Controller
             ->with(['pegawai:id,nama'])
             ->get();
 
+        // dd($logHarians);
+
         return view('dashboard', compact('logHarians'));
     }
 }

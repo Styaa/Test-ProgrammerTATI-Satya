@@ -384,7 +384,7 @@
                                         </td>
                                         <td class="align-middle text-center">
                                             <h6 class=" font-weight-bold">
-                                                {{ $log->verifikator?->nama ?? 'Belum diverifikasi' }}</h6>
+                                                {{ $logHarian->verifikator->nama ?? 'Belum diverifikasi' }}</h6>
                                         </td>
                                     </tr>
                                 @endforeach

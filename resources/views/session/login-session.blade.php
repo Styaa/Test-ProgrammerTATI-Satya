@@ -18,7 +18,7 @@
                                 <div class="card-body">
                                     <form role="form" method="POST" action="/session">
                                         @csrf
-                                        <label>Email</label>
+                                        <label>Nama</label>
                                         <div class="mb-3">
                                             <input type="text" class="form-control" name="nama" id="email"
                                                 placeholder="Nama" value="admin@softui.com" aria-label="Nama"

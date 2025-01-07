@@ -13,18 +13,18 @@
                                     <p class="mb-0">Enter your email and password to sign in</p>
                                 </div>
                                 <div class="card-body">
-                                    <form role="form">
-                                        <label>Email</label>
+                                    <form role="form" method="POST" action="/session">
+                                        <label>Nama</label>
                                         <div class="mb-3">
-                                            <input type="email" class="form-control" placeholder="Email"
-                                                aria-label="Email" aria-describedby="email-addon">
+                                            <input type="text" class="form-control" name="nama" placeholder="Nama"
+                                                aria-label="Nama" aria-describedby="nama-addon">
                                             @error('email')
                                                 <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                             @enderror
                                         </div>
                                         <label>Password</label>
                                         <div class="mb-3">
-                                            <input type="email" class="form-control" placeholder="Password"
+                                            <input type="password" class="form-control" placeholder="Password"
                                                 aria-label="Password" aria-describedby="password-addon">
                                             @error('password')
                                                 <p class="text-danger text-xs mt-2">{{ $message }}</p>
@@ -35,7 +35,7 @@
                                             <label class="form-check-label" for="rememberMe">Remember me</label>
                                         </div>
                                         <div class="text-center">
-                                            <button type="button" class="btn bg-gradient-info w-100 mt-4 mb-0">Sign
+                                            <button type="submit" class="btn bg-gradient-info w-100 mt-4 mb-0">Sign
                                                 in</button>
                                         </div>
                                     </form>
