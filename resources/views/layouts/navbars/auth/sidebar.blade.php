@@ -40,25 +40,28 @@
                     <span class="nav-link-text ms-1">Dashboard</span>
                 </a>
             </li>
-            @if (auth()->user()->jabatan_id == 1 || auth()->user()->jabatan_id == 2)
-                <li class="nav-item pb-2">
-                    <a class="nav-link {{ Request::is('review-logs') ? 'active' : '' }}"
-                        href="{{ route('review-logs') }}">
-                        <div
-                            class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                            {{-- <i style="font-size: 1rem;"
-                                class="fas fa-lg fa-list-ul ps-2 pe-2 text-center text-dark {{ Request::is('review-logs') ? 'text-white' : 'text-dark' }} "
-                                aria-hidden="true"></i> --}}
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-view-stacked text-weight-bold text-center text-dark {{ Request::is('review-logs') ? 'text-white' : 'text-dark' }}"
-                                viewBox="0 0 16 16">
-                                <path
-                                    d="M3 0h10a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2m0 1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zm0 8h10a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2m0 1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1z" />
-                            </svg>
-                        </div>
-                        <span class="nav-link-text ms-1">Review Log</span>
-                    </a>
-                </li>
+            @if (auth()->user())
+                @if (auth()->user()->jabatan_id == 1 || auth()->user()->jabatan_id == 2)
+                    <li class="nav-item pb-2">
+                        <a class="nav-link {{ Request::is('review-logs') ? 'active' : '' }}"
+                            href="{{ route('review-logs') }}">
+                            <div
+                                class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                                {{-- <i style="font-size: 1rem;"
+                            class="fas fa-lg fa-list-ul ps-2 pe-2 text-center text-dark {{ Request::is('review-logs') ? 'text-white' : 'text-dark' }} "
+                            aria-hidden="true"></i> --}}
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                    fill="currentColor"
+                                    class="bi bi-view-stacked text-weight-bold text-center text-dark {{ Request::is('review-logs') ? 'text-white' : 'text-dark' }}"
+                                    viewBox="0 0 16 16">
+                                    <path
+                                        d="M3 0h10a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2m0 1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zm0 8h10a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2m0 1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1z" />
+                                </svg>
+                            </div>
+                            <span class="nav-link-text ms-1">Review Log</span>
+                        </a>
+                    </li>
+                @endif
             @endif
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('user-profile') ? 'active' : '' }} " href="{{ url('user-profile') }}">
@@ -94,15 +97,18 @@
                 <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Soal 2</h6>
             </li>
             <li class="nav-item pb-2">
-                <a class="nav-link {{ Request::is('user-management') ? 'active' : '' }}"
-                    href="{{ url('user-management') }}">
+                <a class="nav-link {{ Request::is('provinsi') ? 'active' : '' }}" href="{{ route('provinsi.index') }}">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i style="font-size: 1rem;"
-                            class="fa-regular fa-folder-open ps-2 pe-2 text-center text-dark {{ Request::is('user-management') ? 'text-white' : 'text-dark' }} "
-                            aria-hidden="true"></i>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-map-fill text-center text-dark {{ Request::is('provinsi') ? 'text-white' : 'text-dark' }}"
+                            viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M16 .5a.5.5 0 0 0-.598-.49L10.5.99 5.598.01a.5.5 0 0 0-.196 0l-5 1A.5.5 0 0 0 0 1.5v14a.5.5 0 0 0 .598.49l4.902-.98 4.902.98a.5.5 0 0 0 .196 0l5-1A.5.5 0 0 0 16 14.5zM5 14.09V1.11l.5-.1.5.1v12.98l-.402-.08a.5.5 0 0 0-.196 0zm5 .8V1.91l.402.08a.5.5 0 0 0 .196 0L11 1.91v12.98l-.5.1z" />
+                        </svg>
                     </div>
-                    <span class="nav-link-text ms-1">User Management</span>
+                    <span class="nav-link-text ms-1">Provinsi</span>
                 </a>
             </li>
             <li class="nav-item mt-2">

@@ -116,6 +116,10 @@
                                                 class="btn bg-gradient-dark w-100 my-4 mb-2">Submit</button>
                                         </div>
                                     </form>
+                                    <div class="text-center">
+                                        <a href="{{ route('provinsi.index') }}"
+                                            class="btn bg-gradient-dark w-100 my-4 mb-2">Provinsi</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
