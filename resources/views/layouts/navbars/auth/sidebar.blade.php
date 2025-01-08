@@ -11,6 +11,9 @@
     <hr class="horizontal dark mt-0">
     <div class="collapse navbar-collapse h-auto w-auto" id="sidenav-collapse-main">
         <ul class="navbar-nav">
+            <li class="nav-item mt-2">
+                <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Soal 1</h6>
+            </li>
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('dashboard') ? 'active' : '' }}" href="{{ url('dashboard') }}">
                     <div
@@ -39,21 +42,24 @@
             </li>
             @if (auth()->user()->jabatan_id == 1 || auth()->user()->jabatan_id == 2)
                 <li class="nav-item pb-2">
-                    <a class="nav-link {{ Request::is('user-management') ? 'active' : '' }}"
+                    <a class="nav-link {{ Request::is('review-logs') ? 'active' : '' }}"
                         href="{{ route('review-logs') }}">
                         <div
                             class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                            <i style="font-size: 1rem;"
-                                class="fas fa-lg fa-list-ul ps-2 pe-2 text-center text-dark {{ Request::is('user-management') ? 'text-white' : 'text-dark' }} "
-                                aria-hidden="true"></i>
+                            {{-- <i style="font-size: 1rem;"
+                                class="fas fa-lg fa-list-ul ps-2 pe-2 text-center text-dark {{ Request::is('review-logs') ? 'text-white' : 'text-dark' }} "
+                                aria-hidden="true"></i> --}}
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-view-stacked text-weight-bold text-center text-dark {{ Request::is('review-logs') ? 'text-white' : 'text-dark' }}"
+                                viewBox="0 0 16 16">
+                                <path
+                                    d="M3 0h10a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2m0 1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zm0 8h10a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2m0 1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1z" />
+                            </svg>
                         </div>
                         <span class="nav-link-text ms-1">Review Log</span>
                     </a>
                 </li>
             @endif
-            <li class="nav-item mt-2">
-                <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Laravel Examples</h6>
-            </li>
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('user-profile') ? 'active' : '' }} " href="{{ url('user-profile') }}">
                     <div
@@ -84,13 +90,16 @@
                     <span class="nav-link-text ms-1">User Profile</span>
                 </a>
             </li>
+            <li class="nav-item mt-2">
+                <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Soal 2</h6>
+            </li>
             <li class="nav-item pb-2">
                 <a class="nav-link {{ Request::is('user-management') ? 'active' : '' }}"
                     href="{{ url('user-management') }}">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i style="font-size: 1rem;"
-                            class="fas fa-lg fa-list-ul ps-2 pe-2 text-center text-dark {{ Request::is('user-management') ? 'text-white' : 'text-dark' }} "
+                            class="fa-regular fa-folder-open ps-2 pe-2 text-center text-dark {{ Request::is('user-management') ? 'text-white' : 'text-dark' }} "
                             aria-hidden="true"></i>
                     </div>
                     <span class="nav-link-text ms-1">User Management</span>
