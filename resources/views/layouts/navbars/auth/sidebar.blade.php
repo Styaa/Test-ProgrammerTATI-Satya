@@ -132,12 +132,13 @@
                 <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Soal 4</h6>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ Request::is('billing') ? 'active' : '' }}" href="{{ url('billing') }}">
+                <a class="nav-link {{ Request::is('helloworld.form') ? 'active' : '' }}"
+                    href="{{ route('helloworld.form') }}">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1"
                             xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                            <title>credit-card</title>
+                            <title>hello-world</title>
                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                 <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF"
                                     fill-rule="nonzero">
@@ -155,7 +156,7 @@
                             </g>
                         </svg>
                     </div>
-                    <span class="nav-link-text ms-1">Billing</span>
+                    <span class="nav-link-text ms-1">Hello World</span>
                 </a>
             </li>
         </ul>

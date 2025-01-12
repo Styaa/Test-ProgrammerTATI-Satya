@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HelloWorldController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InfoUserController;
 use App\Http\Controllers\LogHarianController;
@@ -37,6 +38,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/pegawai/penilaian/{id}', [PegawaiController::class, 'penilaian'])->name('pegawai.penilaian');
     Route::post('/pegawai/storepenilaian/{id}', [PegawaiController::class, 'storePredikat'])->name('pegawai.storePredikat');
     Route::resource('pegawai', PegawaiController::class);
+
+    Route::get('/helloworld', [HelloWorldController::class, 'showHelloworldForm'])->name('helloworld.form');
+    Route::post('/helloworld', [HelloWorldController::class, 'processHelloworld'])->name('helloworld.process');
 
     Route::get('/logout', [SessionsController::class, 'destroy']);
     Route::get('/user-profile', [InfoUserController::class, 'create']);
