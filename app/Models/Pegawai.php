@@ -27,4 +27,9 @@ class Pegawai extends Model implements AuthenticatableContract
     {
         return $this->belongsTo(Pegawai::class, 'atasan_id');
     }
+
+    public function performa()
+    {
+        return $this->hasMany(PerformaPegawai::class, 'pegawai_id');
+    }
 }

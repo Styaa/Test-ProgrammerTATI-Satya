@@ -4,6 +4,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InfoUserController;
 use App\Http\Controllers\LogHarianController;
+use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\ProvinsiController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
@@ -32,6 +33,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/review-logs', [LogHarianController::class, 'reviewLogs'])->name('review-logs');
     Route::get('/log-harian/approve/{id}', [LogHarianController::class, 'approveLog'])->name('log-harian.approve');
     Route::get('/log-harian/reject/{id}', [LogHarianController::class, 'rejectLog'])->name('log-harian.reject');
+
+    Route::get('/pegawai/penilaian/{id}', [PegawaiController::class, 'penilaian'])->name('pegawai.penilaian');
+    Route::post('/pegawai/storepenilaian/{id}', [PegawaiController::class, 'storePredikat'])->name('pegawai.storePredikat');
+    Route::resource('pegawai', PegawaiController::class);
 
     Route::get('/logout', [SessionsController::class, 'destroy']);
     Route::get('/user-profile', [InfoUserController::class, 'create']);
