@@ -17,10 +17,15 @@ class ProvinsiController extends Controller
     public function index()
     {
         //
-        alert('hdhd');
         $provinsis = Provinsi::all();
         // dd($provinsi);
         return view('provinsi.index', compact('provinsis'));
+    }
+
+    public function create()
+    {
+        // var_dump("HEHE");
+        return view('provinsi.create');
     }
 
     /**
@@ -29,6 +34,18 @@ class ProvinsiController extends Controller
     public function store(Request $request)
     {
         //
+        // dd($request);
+        $request->validate([
+            'name' => 'required',
+            'code' => 'required',
+        ]);
+
+        Provinsi::create([
+            'name' => $request->name,
+            'code' => $request->code,
+        ]);
+
+        return redirect()->route('provinsi.index')->with('success', 'Provinsi berhasil ditambahkan.');
     }
 
     /**
@@ -51,6 +68,14 @@ class ProvinsiController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $provinsi = Provinsi::findOrFail($id);
+
+        $provinsi->update([
+            'code' => $request->input('code'),
+            'name' => $request->input('name'),
+        ]);
+
+        return redirect()->route('provinsi.index')->with('success', 'Data provinsi berhasil diupdate');
     }
 
     /**
@@ -62,11 +87,10 @@ class ProvinsiController extends Controller
         $province = Provinsi::find($id);
 
         if (!$province) {
-            return response()->json(['message' => 'Provinsi tidak ditemukan'], 404);
+            return redirect()->route('provinsi.index')->with('success', 'Provinsi tidak ditemukan.');
         }
 
         $province->delete();
-
-        return response()->json(['message' => 'Provinsi berhasil dihapus']);
+        return redirect()->route('provinsi.index')->with('success', 'Provinsi berhasil dihapus.');
     }
 }

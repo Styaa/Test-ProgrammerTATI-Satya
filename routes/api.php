@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // })->middleware('auth:sanctum');
 
-Route::apiResource('/provinsi', ProvinsiController::class);
+Route::Resource('/provinsi', ProvinsiController::class);
 
 Route::get('/provinsi/{provinsi}/edit', [ProvinsiController::class, 'edit'])->name('provinsi.edit');
+// Route::put('/provinsi/{provinsi}', [ProvinsiController::class, 'update'])->name('provinsi.update');
+Route::get('/provinsi', [ProvinsiController::class, 'index'])->name('provinsi.index');
+// Route::get('/provinsi/create', [ProvinsiController::class, 'create'])->name('provinsi.create');

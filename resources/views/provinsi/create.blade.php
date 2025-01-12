@@ -16,14 +16,13 @@
                                 <p class="mb-0">Password <b>secret</b></p> --}}
                                 </div>
                                 <div class="card-body">
-                                    <form role="form" method="POST"
-                                        action="{{ route('provinsi.update', $provinsi->id) }}">
+                                    <form role="form" method="POST" action="{{ route('provinsi.store') }}">
                                         @csrf
-                                        @method('PUT')
+                                        @method('POST')
                                         <label>Nama</label>
                                         <div class="mb-3">
                                             <input type="text" class="form-control" name="name" id="email"
-                                                placeholder="Name" value="{{ $provinsi->name }}" aria-label="Name"
+                                                placeholder="Name" value="" aria-label="Name"
                                                 aria-describedby="email-addon">
                                             {{-- @error('email')
                                                 <p class="text-danger text-xs mt-2">{{ $message }}</p>
@@ -32,14 +31,14 @@
                                         <label>Kode</label>
                                         <div class="mb-3">
                                             <input type="text" class="form-control" name="code" id="code"
-                                                placeholder="Code" value="{{ $provinsi->code }}" aria-label="Code"
+                                                placeholder="Code" value="" aria-label="Code"
                                                 aria-describedby="password-addon">
                                             {{-- @error('password')
                                                 <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                             @enderror --}}
                                         </div>
                                         <div class="text-center">
-                                            <button type="submit" class="btn bg-gradient-info w-100 mt-4 mb-0">Update
+                                            <button type="submit" class="btn bg-gradient-info w-100 mt-4 mb-0">Tambah
                                                 Provinsi</button>
                                             <a href="{{ route('provinsi.index') }}"
                                                 class="btn btn-primary w-100 mt-4 mb-0">Kembali</a>

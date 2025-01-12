@@ -2,6 +2,10 @@
 
 @section('content')
     <div class="card-body px-0 pb-2">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h4 class="text-secondary">Daftar Provinsi</h4>
+            <a href="{{ route('provinsi.create') }}" class="btn bg-gradient-info">Add Provinsi</a>
+        </div>
         <div class="table-responsive">
             <table class="table align-items-center mb-0">
                 <thead>
